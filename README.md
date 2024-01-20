@@ -15,7 +15,7 @@ Store the first k elements of the Flow in K.
 
 Essentially, we calculate each time the probability of an element being in our sample (in the code, this probability is p1= K / N), and then we use another randomly selected probability that "corresponds" to the probability of the nth element of the flow that just appeared (in the code, this is the probability p2). By comparing these two probabilities, we add the newly appeared element to our sample only if p2 ≤ p1. This check ensures that any element appearing in our sample will have a probability less than or equal to K / N. This is the desired property for our sample to be representative (uniformly random).
 
-# Proof by mathematical induction:
+# Proof by mathematical induction
 
 Base: For N ≤ K elements so far, the sample K has the desired property:
 
