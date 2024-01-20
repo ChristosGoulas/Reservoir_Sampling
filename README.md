@@ -44,3 +44,6 @@ Where:
 The total probability of one of the first n elements being in the sample K at time n + 1 is:
 
 (k/n) * (n/(n + 1)) = k/(n + 1)
+
+# Language
+Python 3
