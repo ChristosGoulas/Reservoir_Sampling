@@ -1,6 +1,6 @@
 # Reservoir Sampling
 
-A professional Python implementation of the **Reservoir Sampling** algorithm—a randomized streaming algorithm that selects a uniform random sample of K elements from a data stream without storing the entire stream in memory.
+A professional Python implementation of the **Reservoir Sampling** algorithm. A randomized streaming algorithm that selects a uniform random sample of K elements from a data stream without storing the entire stream in memory.
 
 **Key Features:**
 - ✨ Memory-efficient: O(K) space complexity regardless of stream size
@@ -82,7 +82,7 @@ return reservoir
 ### Basic Usage
 
 ```bash
-python3 ReservoirSampling.py <k> <input_file> [--verbose]
+python3 reservoir_sampling.py <k> <input_file> [--verbose]
 ```
 
 **Arguments:**
@@ -94,12 +94,12 @@ python3 ReservoirSampling.py <k> <input_file> [--verbose]
 
 **Quiet mode** (displays final sample only):
 ```bash
-python3 ReservoirSampling.py 5 example.txt
+python3 reservoir_sampling.py 5 example.txt
 ```
 
 **Verbose mode** (shows algorithm progression):
 ```bash
-python3 ReservoirSampling.py 5 example.txt --verbose
+python3 reservoir_sampling.py 5 example.txt --verbose
 ```
 
 ### Sample Output
@@ -132,9 +132,9 @@ FINAL SAMPLE
 
 ```
 Reservoir_Sampling/
-├── ReservoirSampling.py    # Main implementation with type hints
-├── example.txt             # Example input file (15 sample elements)
-└── README.md               # This file
+├── reservoir_sampling.py    # Main implementation with type hints
+├── example.txt              # Example input file (15 sample elements)
+└── README.md                # This file
 ```
 
 ---
