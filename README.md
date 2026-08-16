@@ -199,10 +199,3 @@ $$P_{N+1} = \frac{K}{N+1} \quad \checkmark$$
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-## References
-
-- Vitter, J. S. (1985). "Random Sampling with a Reservoir"
-- [Reservoir Sampling on Wikipedia](https://en.wikipedia.org/wiki/Reservoir_sampling)
