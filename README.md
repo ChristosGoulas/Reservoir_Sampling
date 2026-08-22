@@ -1,14 +1,12 @@
 # Reservoir Sampling
 
-A professional Python implementation of the **Reservoir Sampling** algorithm. A randomized streaming algorithm that selects a uniform random sample of K elements from a data stream without storing the entire stream in memory.
+A Python implementation of the **Reservoir Sampling** algorithm. Reservoir sampling selects a uniform random sample of K elements from a data stream without storing the entire stream in memory.
 
 **Key Features:**
-- ✨ Memory-efficient: O(K) space complexity regardless of stream size
-- 🎯 Mathematically proven: Guarantees uniform sampling probability
-- 🔄 Single-pass: Processes stream sequentially, one element at a time
-- 📊 Type-safe: Full Python type hints for production-grade code
-- 🛡️ Robust: Input validation and error handling
-- 📖 Well-documented: Comprehensive docstrings and examples
+- Memory-efficient: O(K) space complexity regardless of stream size
+- Single-pass: Processes the stream sequentially, one element at a time
+- Uniform sampling: Each element has an equal probability of being selected
+- Command-line interface with input validation and optional verbose output
 
 ---
 
@@ -16,9 +14,9 @@ A professional Python implementation of the **Reservoir Sampling** algorithm. A 
 
 When processing massive data streams (e.g., logs, sensor data, network traffic), we often need to select a representative random sample without knowing the stream size in advance. Storing all elements in memory is impractical for large streams.
 
-**Reservoir Sampling** solves this elegantly:
+**Reservoir Sampling** addresses this problem by allowing us to:
 - Process stream **only once**
-- Maintain exactly **K elements** in memory
+- Maintain up to **K elements** in memory
 - Achieve **uniform random distribution** across all elements
 
 ---
@@ -77,7 +75,7 @@ return reservoir
 ## Installation & Usage
 
 ### Requirements
-- Python 3.7+
+- Python 3.9+
 
 ### Basic Usage
 
@@ -139,16 +137,14 @@ Reservoir_Sampling/
 
 ---
 
-## Code Quality
+## Implementation Details
 
-This implementation demonstrates professional Python practices:
+The implementation includes:
 
-✅ **Type Hints** - Full type annotations for clarity and IDE support  
-✅ **Docstrings** - Comprehensive documentation for all functions  
-✅ **Error Handling** - Validates input and handles edge cases  
-✅ **Code Organization** - Modular design with single responsibility  
-✅ **Variable Naming** - Clear, descriptive names following conventions  
-✅ **PEP 8 Compliant** - Professional formatting standards  
+- Type annotations for function inputs and return values
+- Docstrings describing the module and its functions
+- Command-line argument validation
+- Optional verbose output showing the sampling process
 
 ---
 
@@ -172,17 +168,17 @@ For any element i that was in the reservoir at step N:
 
 $$P_{\text{stays}} = P_{\text{in at N}} \times P(\text{not replaced at N+1})$$
 
-$$= \frac{K}{N} \times \left(1 - \frac{K}{N} \times \frac{1}{K}\right)$$
+$$= \frac{K}{N} \times \left(1 - \frac{K}{N+1} \times \frac{1}{K}\right)$$
 
-$$= \frac{K}{N} \times \left(1 - \frac{1}{N}\right)$$
+$$= \frac{K}{N} \times \left(1 - \frac{1}{N+1}\right)$$
 
-$$= \frac{K}{N} \times \frac{N-1}{N} = \frac{K(N-1)}{N^2}$$
+$$= \frac{K}{N} \times \frac{N}{N+1} = \frac{K}{N+1}$$
 
 For the new element at position N+1:
 
 $$P_{\text{new enters}} = \frac{K}{N+1}$$
 
-By the law of total probability, all elements have equal probability:
+Thus, the new element and every previous element have equal probability:
 
 $$P_{N+1} = \frac{K}{N+1} \quad \checkmark$$
 
