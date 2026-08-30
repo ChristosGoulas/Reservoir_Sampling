@@ -1,5 +1,9 @@
 # Reservoir Sampling
 
+[![CI](https://github.com/ChristosGoulas/Reservoir_Sampling/actions/workflows/ci.yml/badge.svg)](https://github.com/ChristosGoulas/Reservoir_Sampling/actions/workflows/ci.yml)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A Python implementation of the **Reservoir Sampling** algorithm. Reservoir sampling selects a uniform random sample of K elements from a data stream without storing the entire stream in memory.
 
 **Key Features:**
@@ -76,6 +80,16 @@ return reservoir
 
 ### Requirements
 - Python 3.9+
+- Optional development dependencies for linting and tests
+
+### Install for local development
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e '.[dev]'
+```
 
 ### Basic Usage
 
@@ -98,6 +112,16 @@ python3 reservoir_sampling.py 5 example.txt
 **Verbose mode** (shows algorithm progression):
 ```bash
 python3 reservoir_sampling.py 5 example.txt --verbose
+```
+
+### Validation
+
+Run the project checks before pushing a branch:
+
+```bash
+pytest -q
+ruff check .
+mypy .
 ```
 
 ### Sample Output
@@ -128,11 +152,21 @@ FINAL SAMPLE
 
 ## Project Structure
 
-```
+```text
 Reservoir_Sampling/
-├── reservoir_sampling.py    # Main implementation with type hints
-├── example.txt              # Example input file (15 sample elements)
-└── README.md                # This file
+├── .gitignore               # Python project ignores for caches, envs, and build outputs
+├── .venv/                   # Local virtual environment (not committed)
+├── pyproject.toml           # Project metadata and tool configuration
+├── reservoir_sampling.py    # Main implementation with CLI and validation
+├── example.txt              # Example input file
+├── README.md                # Project documentation
+├── tests/
+│   ├── tests/
+│   │   ├── unit/
+│   │   │   └── test_reservoir_sampling.py
+│   │   └── integration/
+│   │       └── test_cli.py
+└── .github/                 # Optional GitHub automation (if added later)
 ```
 
 ---
@@ -194,4 +228,4 @@ $$P_{N+1} = \frac{K}{N+1} \quad \checkmark$$
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
